@@ -43,12 +43,12 @@ const Navbar: React.FC = () => {
 
         {/* Login Button */}
         <div>
-          <a
-            href="#"
+          <Link
+            href={"/login"}
             className="bg-white text-green-500 px-4 py-2 rounded-lg hover:bg-green-100 transition duration-300 ml-12 mr-4"
           >
             Login
-          </a>
+          </Link>
         </div>
       </div>
 

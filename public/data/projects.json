@@ -2,7 +2,7 @@
   {
     "id": 1,
     "title": "Revitalisasi THR",
-    "image": "/images/thr.jpg",
+    "image": "/images/thr.jpeg",
     "description": "Pembaruan fasilitas dan infrastruktur Taman Hiburan Rakyat untuk meningkatkan daya tarik wisata.",
     "date": "Jan 2024 - Des 2024",
     "location": "Surabaya Pusat",
@@ -12,7 +12,7 @@
   {
     "id": 2,
     "title": "Pembangunan Jalur Kereta Cepat",
-    "image": "/images/kereta.jpg",
+    "image": "/images/kereta.jpeg",
     "description": "Pembangunan jalur kereta cepat untuk menghubungkan kota-kota besar dengan efisiensi tinggi.",
     "date": "Feb 2024 - Jun 2025",
     "location": "Jakarta - Bandung",
@@ -22,7 +22,7 @@
   {
     "id": 3,
     "title": "Pengelolaan Sampah Kota",
-    "image": "/images/sampah.jpg",
+    "image": "/images/sampah.jpeg",
     "description": "Inisiatif pengelolaan sampah berkelanjutan dengan teknologi ramah lingkungan di kawasan urban.",
     "date": "Mar 2024 - Nov 2024",
     "location": "Surabaya Pusat",
@@ -32,7 +32,7 @@
   {
     "id": 4,
     "title": "Pembangunan Pusat Olahraga Nasional",
-    "image": "/images/olahraga.jpg",
+    "image": "/images/olahraga.jpeg",
     "description": "Pembangunan pusat olahraga dengan fasilitas lengkap untuk mendukung kegiatan olahraga tingkat nasional.",
     "date": "Apr 2024 - Des 2024",
     "location": "Jakarta Timur",
@@ -42,7 +42,7 @@
   {
     "id": 5,
     "title": "Rehabilitasi Sungai Brantas",
-    "image": "/images/sungai.jpg",
+    "image": "/images/sungai.jpeg",
     "description": "Proyek rehabilitasi dan konservasi untuk mengurangi polusi dan meningkatkan kualitas air sungai Brantas.",
     "date": "May 2024 - Nov 2024",
     "location": "Malang - Surabaya",
@@ -52,7 +52,7 @@
   {
     "id": 6,
     "title": "Revitalisasi Pasar Tradisional",
-    "image": "/images/pasar.jpg",
+    "image": "/images/pasar.jpeg",
     "description": "Revitalisasi pasar tradisional dengan fasilitas yang lebih baik dan ramah lingkungan.",
     "date": "Jun 2024 - Jan 2025",
     "location": "Surabaya Barat",

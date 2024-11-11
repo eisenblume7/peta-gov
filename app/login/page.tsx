@@ -2,6 +2,7 @@
 
 import React from "react";
 import { Loader2 } from "lucide-react";
+import Link from "next/link";
 
 const LoginPage = () => {
   const [isLoading, setIsLoading] = React.useState(false);
@@ -108,12 +109,12 @@ const LoginPage = () => {
         <div className="text-center text-sm">
           <p className="text-gray-600">
             Belum punya akun?{" "}
-            <a
-              href="#"
+            <Link
+              href={"/register"}
               className="font-medium text-teal-600 hover:text-teal-500 transition duration-300"
             >
               Daftar sekarang
-            </a>
+            </Link>
           </p>
         </div>
       </div>
