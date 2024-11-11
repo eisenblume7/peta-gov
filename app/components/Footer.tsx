@@ -1,53 +1,112 @@
-import React from 'react';
+import React from "react";
 import {
-    FaFacebookF,
-    FaTwitter,
-    FaLinkedinIn,
-    FaYoutube,
-    FaInstagram,
-    FaGooglePlusG,
-    FaPinterestP,
-    FaRss,
-} from 'react-icons/fa';
+  Facebook,
+  Twitter,
+  Linkedin,
+  Youtube,
+  Instagram,
+  Phone,
+  Mail,
+  MapPin,
+} from "lucide-react";
 
-const Footer: React.FC = () => {
-    return (
-        <footer className="flex bg-teal-600 text-white py-8">
-            <div className="container mx-auto px-4">
-                <div className="ml-96 mt-16 flex flex-col items-center">
-                    <h2 className="absolute left-20 mt-8 text-4xl font-semibold mb-2">PetaGov</h2>
-                    <p className="text-sm text-center mb-4">Universitas Airlangga</p>
+const Footer = () => {
+  const socialLinks = [
+    { icon: <Facebook size={20} />, href: "#", label: "Facebook" },
+    { icon: <Twitter size={20} />, href: "#", label: "Twitter" },
+    { icon: <Linkedin size={20} />, href: "#", label: "LinkedIn" },
+    { icon: <Youtube size={20} />, href: "#", label: "Youtube" },
+    { icon: <Instagram size={20} />, href: "#", label: "Instagram" },
+  ];
 
-                    <div className="flex space-x-4 mb-4">
-                        <p>(+62) 98998</p>
-                        <span>|</span>
-                        <p>031 98990</p>
-                    </div>
+  const quickLinks = [
+    { text: "About Us", href: "#" },
+    { text: "Contact Us", href: "#" },
+    { text: "Help", href: "#" },
+    { text: "Privacy Policy", href: "#" },
+    { text: "Disclaimer", href: "#" },
+  ];
 
-                    <div className="flex space-x-3 mb-6">
-                        <FaFacebookF />
-                        <FaTwitter />
-                        <FaLinkedinIn />
-                        <FaYoutube />
-                        <FaInstagram />
-                        <FaGooglePlusG />
-                        <FaPinterestP />
-                        <FaRss />
-                    </div>
+  const contactInfo = [
+    { icon: <Phone size={16} />, text: "(+62) 98998" },
+    { icon: <Mail size={16} />, text: "contact@petagov.com" },
+    { icon: <MapPin size={16} />, text: "Universitas Airlangga" },
+  ];
 
-                    <div className="absolute left-20 mt-28 mb space-x-6 text-sm text-center mb-4">
-                        <a href="#" className="hover:underline">ABOUT US</a>
-                        <a href="#" className="hover:underline">CONTACT US</a>
-                        <a href="#" className="hover:underline">HELP</a>
-                        <a href="#" className="hover:underline">PRIVACY POLICY</a>
-                        <a href="#" className="hover:underline">DISCLAIMER</a>
-                    </div>
-
-                    <p className="text-xs mb-20">&copy; 2024 - Peta Government</p>
-                </div>
+  return (
+    <footer className="bg-gradient-to-r from-teal-600 to-teal-700">
+      <div className="max-w-7xl mx-auto px-4 py-12">
+        {/* Main Footer Content */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+          {/* Brand Section */}
+          <div className="space-y-4">
+            <h2 className="text-3xl font-bold text-white">PetaGov</h2>
+            <p className="text-teal-100">
+              Platform terpadu untuk informasi pemerintahan yang transparan dan
+              mudah diakses.
+            </p>
+            <div className="flex space-x-4">
+              {socialLinks.map((social, index) => (
+                <a
+                  key={index}
+                  href={social.href}
+                  className="text-teal-100 hover:text-white transition-colors duration-200"
+                  aria-label={social.label}
+                >
+                  {social.icon}
+                </a>
+              ))}
             </div>
-        </footer>
-    );
+          </div>
+
+          {/* Quick Links Section */}
+          <div className="space-y-4">
+            <h3 className="text-xl font-semibold text-white">Quick Links</h3>
+            <ul className="space-y-2">
+              {quickLinks.map((link, index) => (
+                <li key={index}>
+                  <a
+                    href={link.href}
+                    className="text-teal-100 hover:text-white transition-colors duration-200 block"
+                  >
+                    {link.text}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Contact Information */}
+          <div className="space-y-4">
+            <h3 className="text-xl font-semibold text-white">Contact Us</h3>
+            <ul className="space-y-3">
+              {contactInfo.map((info, index) => (
+                <li
+                  key={index}
+                  className="flex items-center space-x-2 text-teal-100"
+                >
+                  {info.icon}
+                  <span>{info.text}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+
+        {/* Footer Bottom */}
+        <div className="border-t border-teal-500 pt-8">
+          <div className="flex flex-col md:flex-row justify-between items-center">
+            <p className="text-teal-100 text-sm">
+              &copy; {new Date().getFullYear()} PetaGov. All rights reserved.
+            </p>
+            <p className="text-teal-100 text-sm mt-2 md:mt-0">
+              Powered by Universitas Airlangga
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+  );
 };
 
 export default Footer;

@@ -1,11 +1,15 @@
-import Hero from "@/app/components/Hero";
-import ProjectSlider from "@/app/components/ProjectSection";
+import FeatureSection from "./components/FeatureSection";
+import Hero from "./components/Hero";
+import ProjectSlider from "./components/ProjectSection";
+import StatsSection from "./components/StatsSection";
 
 export default function Home() {
   return (
-    <div>
-        <Hero/>
-        <ProjectSlider/>
+    <div className="min-h-screen">
+      <Hero />
+      <FeatureSection />
+      <StatsSection />
+      <ProjectSlider />
     </div>
   );
 }

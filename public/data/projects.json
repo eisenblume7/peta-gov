@@ -1,0 +1,202 @@
+[
+  {
+    "id": 1,
+    "title": "Revitalisasi THR",
+    "image": "/images/thr.jpg",
+    "description": "Pembaruan fasilitas dan infrastruktur Taman Hiburan Rakyat untuk meningkatkan daya tarik wisata.",
+    "date": "Jan 2024 - Des 2024",
+    "location": "Surabaya Pusat",
+    "progress": 75,
+    "status": "latest"
+  },
+  {
+    "id": 2,
+    "title": "Pembangunan Jalur Kereta Cepat",
+    "image": "/images/kereta.jpg",
+    "description": "Pembangunan jalur kereta cepat untuk menghubungkan kota-kota besar dengan efisiensi tinggi.",
+    "date": "Feb 2024 - Jun 2025",
+    "location": "Jakarta - Bandung",
+    "progress": 50,
+    "status": "ongoing"
+  },
+  {
+    "id": 3,
+    "title": "Pengelolaan Sampah Kota",
+    "image": "/images/sampah.jpg",
+    "description": "Inisiatif pengelolaan sampah berkelanjutan dengan teknologi ramah lingkungan di kawasan urban.",
+    "date": "Mar 2024 - Nov 2024",
+    "location": "Surabaya Pusat",
+    "progress": 30,
+    "status": "ongoing"
+  },
+  {
+    "id": 4,
+    "title": "Pembangunan Pusat Olahraga Nasional",
+    "image": "/images/olahraga.jpg",
+    "description": "Pembangunan pusat olahraga dengan fasilitas lengkap untuk mendukung kegiatan olahraga tingkat nasional.",
+    "date": "Apr 2024 - Des 2024",
+    "location": "Jakarta Timur",
+    "progress": 60,
+    "status": "latest"
+  },
+  {
+    "id": 5,
+    "title": "Rehabilitasi Sungai Brantas",
+    "image": "/images/sungai.jpg",
+    "description": "Proyek rehabilitasi dan konservasi untuk mengurangi polusi dan meningkatkan kualitas air sungai Brantas.",
+    "date": "May 2024 - Nov 2024",
+    "location": "Malang - Surabaya",
+    "progress": 40,
+    "status": "ongoing"
+  },
+  {
+    "id": 6,
+    "title": "Revitalisasi Pasar Tradisional",
+    "image": "/images/pasar.jpg",
+    "description": "Revitalisasi pasar tradisional dengan fasilitas yang lebih baik dan ramah lingkungan.",
+    "date": "Jun 2024 - Jan 2025",
+    "location": "Surabaya Barat",
+    "progress": 20,
+    "status": "latest"
+  },
+  {
+    "id": 7,
+    "title": "Pembangunan Bandara Internasional",
+    "image": "/images/bandara.jpg",
+    "description": "Pembangunan bandara internasional baru untuk mendukung peningkatan lalu lintas udara internasional.",
+    "date": "Jan 2024 - Dec 2025",
+    "location": "Yogyakarta",
+    "progress": 35,
+    "status": "ongoing"
+  },
+  {
+    "id": 8,
+    "title": "Pembangunan Infrastruktur Digital",
+    "image": "/images/digital.jpg",
+    "description": "Pembangunan infrastruktur jaringan digital untuk mendukung ekonomi digital di kota-kota besar.",
+    "date": "Apr 2024 - Jun 2025",
+    "location": "Surabaya dan sekitarnya",
+    "progress": 55,
+    "status": "ongoing"
+  },
+  {
+    "id": 9,
+    "title": "Pembangunan Transportasi Massal",
+    "image": "/images/transportasi.jpg",
+    "description": "Pembangunan sistem transportasi massal untuk mengurangi kemacetan dan emisi di kawasan urban.",
+    "date": "Mar 2024 - Des 2024",
+    "location": "Jakarta Selatan",
+    "progress": 70,
+    "status": "latest"
+  },
+  {
+    "id": 10,
+    "title": "Proyek Taman Kota Hijau",
+    "image": "/images/taman.jpg",
+    "description": "Pengembangan taman kota hijau untuk meningkatkan kualitas udara dan ruang terbuka di kota.",
+    "date": "Feb 2024 - Okt 2024",
+    "location": "Bandung",
+    "progress": 50,
+    "status": "latest"
+  },
+  {
+    "id": 11,
+    "title": "Peningkatan Sistem Drainase Kota",
+    "image": "/images/drainase.jpg",
+    "description": "Peningkatan dan pembangunan sistem drainase untuk mengurangi genangan air dan banjir di kawasan perkotaan.",
+    "date": "Jul 2024 - Mar 2025",
+    "location": "Surabaya Timur",
+    "progress": 80,
+    "status": "ongoing"
+  },
+  {
+    "id": 12,
+    "title": "Revitalisasi Kawasan Wisata Pantai",
+    "image": "/images/pantai.jpg",
+    "description": "Proyek revitalisasi kawasan wisata pantai untuk menarik lebih banyak wisatawan domestik dan internasional.",
+    "date": "Jun 2024 - Nov 2024",
+    "location": "Bali",
+    "progress": 60,
+    "status": "latest"
+  },
+  {
+    "id": 13,
+    "title": "Pembangunan Pusat Kegiatan Mahasiswa",
+    "image": "/images/pusat.jpg",
+    "description": "Pembangunan fasilitas pusat kegiatan mahasiswa untuk mendukung aktivitas kampus dan komunitas.",
+    "date": "Apr 2024 - Des 2024",
+    "location": "Malang",
+    "progress": 40,
+    "status": "ongoing"
+  },
+  {
+    "id": 14,
+    "title": "Proyek Pemukiman Vertikal",
+    "image": "/images/pemukiman.jpg",
+    "description": "Pembangunan pemukiman vertikal sebagai solusi atas keterbatasan lahan di perkotaan.",
+    "date": "Sep 2024 - Des 2025",
+    "location": "Jakarta Utara",
+    "progress": 30,
+    "status": "latest"
+  },
+  {
+    "id": 15,
+    "title": "Pembangunan Pusat Teknologi",
+    "image": "/images/teknologi.jpg",
+    "description": "Pembangunan pusat teknologi untuk mendorong inovasi dan pengembangan startup digital.",
+    "date": "Feb 2024 - Sep 2025",
+    "location": "Surabaya Selatan",
+    "progress": 50,
+    "status": "ongoing"
+  },
+  {
+    "id": 16,
+    "title": "Renovasi Stadion Sepak Bola",
+    "image": "/images/stadion.jpg",
+    "description": "Renovasi stadion sepak bola untuk mendukung event-event internasional dan meningkatkan pengalaman penonton.",
+    "date": "Jan 2024 - Jun 2025",
+    "location": "Surabaya",
+    "progress": 20,
+    "status": "ongoing"
+  },
+  {
+    "id": 17,
+    "title": "Pembangunan Gedung Perkantoran Modern",
+    "image": "/images/gedung.jpg",
+    "description": "Pembangunan gedung perkantoran modern dengan desain ramah lingkungan dan teknologi terbaru.",
+    "date": "Mar 2024 - Des 2025",
+    "location": "Jakarta Pusat",
+    "progress": 25,
+    "status": "latest"
+  },
+  {
+    "id": 18,
+    "title": "Proyek Infrastruktur Terpadu",
+    "image": "/images/infrastruktur.jpg",
+    "description": "Proyek pembangunan infrastruktur terpadu untuk mendukung konektivitas antar kota dan kawasan industri.",
+    "date": "Jul 2024 - Des 2024",
+    "location": "Jawa Timur",
+    "progress": 90,
+    "status": "ongoing"
+  },
+  {
+    "id": 19,
+    "title": "Pengembangan Kawasan Industri",
+    "image": "/images/industri.jpg",
+    "description": "Pengembangan kawasan industri dengan fasilitas lengkap untuk mendukung produksi dan distribusi barang.",
+    "date": "Jan 2024 - Jun 2025",
+    "location": "Gresik",
+    "progress": 65,
+    "status": "latest"
+  },
+  {
+    "id": 20,
+    "title": "Pembangunan Sistem Pengairan Pertanian",
+    "image": "/images/pertanian.jpg",
+    "description": "Pembangunan sistem pengairan pertanian modern untuk meningkatkan hasil pertanian di daerah pedesaan.",
+    "date": "Feb 2024 - Jan 2025",
+    "location": "Madura",
+    "progress": 50,
+    "status": "ongoing"
+  }
+]
