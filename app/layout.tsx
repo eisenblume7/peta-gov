@@ -4,6 +4,7 @@ import "./globals.css";
 import { Poppins } from "next/font/google";
 import Navbar from "@/app/components/Navbar";
 import Footer from "@/app/components/Footer";
+import { AuthProvider } from "./contexts/AuthContext";
 
 const poppins = Poppins({
   weight: ["400", "600", "700"], // Tentukan berat font yang diinginkan
@@ -26,8 +27,10 @@ export default function RootLayout({
         <link rel="icon" href="/favicon.ico" />
       </head>
       <body className={poppins.className}>
-        <Navbar />
-        <main>{children}</main>
+        <AuthProvider>
+          <Navbar />
+          <main>{children}</main>
+        </AuthProvider>
         <Footer />
       </body>
     </html>

@@ -2,12 +2,14 @@
 
 import Link from "next/link";
 import React, { useState } from "react";
-import { Search, Menu, X } from "lucide-react";
+import { Search, Menu, X, User } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import { useAuth } from "../contexts/AuthContext";
 
 const Navbar: React.FC = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { isAuthenticated, logout } = useAuth();
 
   const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchQuery(e.target.value);
@@ -19,11 +21,8 @@ const Navbar: React.FC = () => {
   };
 
   const navLinks = [
-    { title: "Tentang Kami", href: "#" },
-    {
-      title: "Proyek",
-      href: "/project",
-    },
+    { title: "Tentang Kami", href: "/about-us" },
+    { title: "Proyek", href: "/project" },
     { title: "Informasi", href: "#" },
     { title: "Investment", href: "/investment" },
   ];
@@ -75,12 +74,29 @@ const Navbar: React.FC = () => {
                 </button>
               </div>
             </form>
-            <Link
-              href="/login"
-              className="bg-white text-teal-600 px-6 py-2 rounded-full hover:bg-green-100 transition-all duration-300 font-medium shadow-md hover:shadow-lg"
-            >
-              Login
-            </Link>
+            {isAuthenticated ? (
+              <div className="flex items-center space-x-4">
+                <Link
+                  href="/profile"
+                  className="text-white hover:text-green-200 transition-colors duration-300"
+                >
+                  <User className="h-6 w-6" />
+                </Link>
+                <button
+                  onClick={logout}
+                  className="bg-white text-teal-600 px-6 py-2 rounded-full hover:bg-green-100 transition-all duration-300 font-medium shadow-md hover:shadow-lg"
+                >
+                  Logout
+                </button>
+              </div>
+            ) : (
+              <Link
+                href="/login"
+                className="bg-white text-teal-600 px-6 py-2 rounded-full hover:bg-green-100 transition-all duration-300 font-medium shadow-md hover:shadow-lg"
+              >
+                Login
+              </Link>
+            )}
           </div>
 
           {/* Mobile menu button */}
@@ -136,12 +152,29 @@ const Navbar: React.FC = () => {
                     </Link>
                   </div>
                 ))}
-                <Link
-                  href="/login"
-                  className="bg-white text-teal-600 px-4 py-2 rounded-full hover:bg-green-100 transition-all duration-300 font-medium text-center shadow-md hover:shadow-lg"
-                >
-                  Login
-                </Link>
+                {isAuthenticated ? (
+                  <>
+                    <Link
+                      href="/profile"
+                      className="text-white hover:text-green-200 transition-colors duration-300 font-medium"
+                    >
+                      Profile
+                    </Link>
+                    <button
+                      onClick={logout}
+                      className="bg-white text-teal-600 px-4 py-2 rounded-full hover:bg-green-100 transition-all duration-300 font-medium text-center shadow-md hover:shadow-lg"
+                    >
+                      Logout
+                    </button>
+                  </>
+                ) : (
+                  <Link
+                    href="/login"
+                    className="bg-white text-teal-600 px-4 py-2 rounded-full hover:bg-green-100 transition-all duration-300 font-medium text-center shadow-md hover:shadow-lg"
+                  >
+                    Login
+                  </Link>
+                )}
               </div>
             </motion.div>
           )}

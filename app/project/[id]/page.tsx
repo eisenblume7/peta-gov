@@ -1,113 +1,59 @@
-"use client";
-
 import { notFound } from "next/navigation";
 import Image from "next/image";
+import Link from "next/link";
 import {
-  ChevronRight,
   MapPin,
   Calendar,
   BarChart2,
   Activity,
+  ArrowRight,
 } from "lucide-react";
 import CommentSection from "./CommentSection";
-import InvestmentModal from "./InvesmentModal";
-import { useState, useEffect } from "react";
+import { getProject, Project } from "../../lib/getProject";
+import { ProjectInfoCard } from "./ProjectInfoCard";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Separator } from "@/components/ui/separator";
 
-interface Project {
-  id: number;
-  title: string;
-  description: string;
-  date: string;
-  location: string;
-  progress: number;
-  status: string;
-  image: string;
-  budget: number;
-  investmentGoal: number;
-  currentInvestment: number;
+function formatCurrency(amount: number): string {
+  return new Intl.NumberFormat("id-ID", {
+    style: "currency",
+    currency: "IDR",
+  }).format(amount);
 }
 
-const ProjectDetailPage = ({ params }: { params: { id: string } }) => {
-  const { id } = params;
-  const [project, setProject] = useState<Project | null>(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
+export default async function ProjectDetailPage({
+  params,
+}: {
+  params: { id: string };
+}) {
+  let project: Project;
 
-  useEffect(() => {
-    const fetchProject = async () => {
-      try {
-        const res = await fetch("http://localhost:3000/data/projects.json");
-        if (!res.ok) {
-          throw new Error(`HTTP error! status: ${res.status}`);
-        }
-        const projects: Project[] = await res.json();
-        const foundProject = projects.find((p) => p.id.toString() === id);
-
-        if (!foundProject) {
-          setError("Project not found");
-          return;
-        }
-
-        setProject(foundProject);
-      } catch (error) {
-        setError(
-          error instanceof Error ? error.message : "Failed to fetch project"
-        );
-        console.error("Error fetching project data:", error);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchProject();
-  }, [id]);
-
-  const handleInvestmentUpdate = (amount: number) => {
-    if (project) {
-      setProject({
-        ...project,
-        currentInvestment: project.currentInvestment + amount,
-      });
-    }
-  };
-
-  if (loading) {
-    return (
-      <div className="flex items-center justify-center min-h-screen">
-        <div className="text-lg text-gray-600">Loading...</div>
-      </div>
-    );
-  }
-
-  if (error) {
-    return (
-      <div className="flex items-center justify-center min-h-screen">
-        <div className="text-lg text-red-600">Error: {error}</div>
-      </div>
-    );
-  }
-
-  if (!project) {
-    return notFound();
+  try {
+    project = await getProject(params.id);
+  } catch (error) {
+    notFound();
   }
 
   const investmentProgress =
     (project.currentInvestment / project.investmentGoal) * 100;
-  const progressBarWidth = Math.min(100, Math.max(0, investmentProgress));
-
-  const formatCurrency = (amount: number) => {
-    return new Intl.NumberFormat("id-ID", {
-      style: "currency",
-      currency: "IDR",
-    }).format(amount);
-  };
+  const progressBarWidth = Math.min(investmentProgress, 100);
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-teal-50 to-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="flex flex-col lg:flex-row gap-12">
-          {/* Left Side: Project Image and Investment Info */}
-          <div className="lg:w-1/2">
+        {/* Header Section */}
+        <div className="mb-12">
+          <h1 className="text-4xl font-bold text-gray-900 mb-4">
+            {project.title}
+          </h1>
+          <p className="text-xl text-gray-600">{project.description}</p>
+        </div>
+
+        {/* Main Content */}
+        <div className="grid lg:grid-cols-2 gap-12">
+          {/* Left Column */}
+          <div>
             <div className="relative group">
               <Image
                 src={project.image}
@@ -123,59 +69,7 @@ const ProjectDetailPage = ({ params }: { params: { id: string } }) => {
               </div>
             </div>
 
-            <div className="mt-8 bg-white rounded-xl shadow-lg p-6">
-              <h2 className="text-2xl font-bold text-gray-800 mb-4">
-                Informasi Investasi
-              </h2>
-              <div className="space-y-4">
-                <div>
-                  <p className="text-sm text-gray-500">Total Anggaran</p>
-                  <p className="text-xl font-semibold text-gray-800">
-                    {formatCurrency(project.budget)}
-                  </p>
-                </div>
-                <div>
-                  <p className="text-sm text-gray-500">Target Investasi</p>
-                  <p className="text-xl font-semibold text-gray-800">
-                    {formatCurrency(project.investmentGoal)}
-                  </p>
-                </div>
-                <div>
-                  <p className="text-sm text-gray-500">Investasi Terkumpul</p>
-                  <div className="flex items-center">
-                    <p className="text-xl font-semibold text-gray-800">
-                      {formatCurrency(project.currentInvestment)}
-                    </p>
-                    <span className="ml-2 text-sm text-green-600">
-                      ({investmentProgress.toFixed(2)}%)
-                    </span>
-                  </div>
-                  <div className="w-full bg-gray-200 rounded-full h-2.5 mt-2">
-                    <div
-                      className="bg-green-500 h-2.5 rounded-full transition-all duration-300"
-                      style={{ width: `${progressBarWidth}%` }}
-                    />
-                  </div>
-                </div>
-              </div>
-              <InvestmentModal
-                projectId={project.id}
-                onInvestmentSuccess={handleInvestmentUpdate}
-                remainingInvestment={
-                  project.investmentGoal - project.currentInvestment
-                }
-              />
-            </div>
-          </div>
-
-          {/* Right Side: Project Information */}
-          <div className="lg:w-1/2">
-            <h1 className="text-4xl font-bold text-gray-900 mb-4">
-              {project.title}
-            </h1>
-            <p className="text-xl text-gray-600 mb-8">{project.description}</p>
-
-            <div className="grid grid-cols-2 gap-6 mb-8">
+            <div className="grid grid-cols-2 gap-6 mt-8">
               <ProjectInfoCard
                 icon={<Calendar className="w-6 h-6 text-teal-600 mr-2" />}
                 label="Tanggal Mulai"
@@ -197,50 +91,69 @@ const ProjectDetailPage = ({ params }: { params: { id: string } }) => {
                 value={project.status}
               />
             </div>
-
-            <div className="bg-white rounded-xl shadow-lg p-6 mb-8">
-              <h2 className="text-2xl font-bold text-gray-800 mb-4">
-                Mengapa Berinvestasi?
-              </h2>
-              <ul className="space-y-3">
-                {investmentReasons.map((reason, index) => (
-                  <li key={index} className="flex items-start">
-                    <ChevronRight className="w-5 h-5 text-green-500 mr-2 flex-shrink-0 mt-1" />
-                    <p className="text-gray-600">{reason}</p>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            <CommentSection projectId={project.id} />
           </div>
+
+          {/* Right Column */}
+          <Card>
+            <CardHeader>
+              <CardTitle>Informasi Investasi</CardTitle>
+            </CardHeader>
+            <CardContent className="space-y-6">
+              <div className="space-y-4">
+                <div>
+                  <p className="text-sm text-gray-500">Total Anggaran</p>
+                  <p className="text-2xl font-semibold text-gray-800">
+                    {formatCurrency(project.budget)}
+                  </p>
+                </div>
+                <div>
+                  <p className="text-sm text-gray-500">Target Investasi</p>
+                  <p className="text-2xl font-semibold text-gray-800">
+                    {formatCurrency(project.investmentGoal)}
+                  </p>
+                </div>
+                <Separator />
+                <div>
+                  <p className="text-sm text-gray-500">Investasi Terkumpul</p>
+                  <div className="flex items-center">
+                    <p className="text-2xl font-semibold text-gray-800">
+                      {formatCurrency(project.currentInvestment)}
+                    </p>
+                    <span className="ml-2 text-sm text-green-600 font-medium">
+                      ({investmentProgress.toFixed(2)}%)
+                    </span>
+                  </div>
+                  <div className="w-full bg-gray-200 rounded-full h-3 mt-3">
+                    <div
+                      className="bg-green-500 h-3 rounded-full transition-all duration-300"
+                      style={{ width: `${progressBarWidth}%` }}
+                    />
+                  </div>
+                </div>
+              </div>
+
+              <Button asChild className="w-full h-12 text-lg" size="lg">
+                <Link href={`/project/${project.id}/invest`}>
+                  Investasi Sekarang
+                  <ArrowRight className="ml-2 h-5 w-5" />
+                </Link>
+              </Button>
+            </CardContent>
+          </Card>
+        </div>
+
+        {/* Comments Section */}
+        <div className="mt-16">
+          <Card>
+            <CardHeader>
+              <CardTitle>Komentar dan Diskusi</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <CommentSection projectId={project.id} />
+            </CardContent>
+          </Card>
         </div>
       </div>
     </div>
   );
-};
-
-interface ProjectInfoCardProps {
-  icon: React.ReactNode;
-  label: string;
-  value: string;
 }
-
-const ProjectInfoCard = ({ icon, label, value }: ProjectInfoCardProps) => (
-  <div className="flex items-center">
-    {icon}
-    <div>
-      <p className="text-sm text-gray-500">{label}</p>
-      <p className="text-lg font-semibold text-gray-800">{value}</p>
-    </div>
-  </div>
-);
-
-const investmentReasons = [
-  "Berkontribusi langsung pada pembangunan infrastruktur negara",
-  "Potensi pengembalian investasi yang menarik",
-  "Mendukung pertumbuhan ekonomi dan pembangunan daerah",
-  "Transparansi dan akuntabilitas dalam pengelolaan dana",
-];
-
-export default ProjectDetailPage;

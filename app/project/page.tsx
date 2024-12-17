@@ -19,7 +19,6 @@ const ProjectPage = () => {
 
   interface Project {
     status: string;
-    // Add other properties of the project here
   }
 
   const [projects, setProjects] = useState<Project[]>([]);
