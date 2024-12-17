@@ -131,7 +131,7 @@ export default function InvestPage() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-primary/10 to-secondary/10 flex items-center justify-center p-4">
       <Card className="w-full max-w-5xl shadow-2xl border-none">
-        <CardHeader className="bg-primary text-white rounded-t-lg p-6 space-y-2">
+        <CardHeader className="bg-gradient-to-r from-teal-600 to-teal-700 text-white rounded-t-lg p-6 space-y-2">
           <CardTitle className="text-3xl font-bold">
             Investment Application
           </CardTitle>
@@ -140,7 +140,7 @@ export default function InvestPage() {
           </CardDescription>
         </CardHeader>
 
-        <div className="px-6 pt-4">
+        <div className="px-6 pt-4 ">
           <Progress
             value={((currentStep + 1) / steps.length) * 100}
             className="w-full h-2 bg-gray-200"
@@ -171,7 +171,7 @@ export default function InvestPage() {
         </div>
 
         <CardContent className="p-6">
-          <Tabs value={steps[currentStep].label} className="w-full">
+          <Tabs value={steps[currentStep].label} className="w-full ">
             <TabsList className="hidden">
               {steps.map((step) => (
                 <TabsTrigger key={step.label} value={step.label}>
@@ -241,7 +241,7 @@ export default function InvestPage() {
             <Button
               onClick={nextStep}
               disabled={isSubmitting}
-              className="bg-primary hover:bg-primary-700 transition-colors"
+              className="bg-gradient-to-r from-teal-600 to-teal-700 hover:bg-primary-700 transition-colors"
             >
               Next
               <ArrowRight className="w-4 h-4 ml-2" />

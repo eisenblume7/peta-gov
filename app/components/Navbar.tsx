@@ -23,8 +23,7 @@ const Navbar: React.FC = () => {
   const navLinks = [
     { title: "Tentang Kami", href: "/about-us" },
     { title: "Proyek", href: "/project" },
-    { title: "Informasi", href: "#" },
-    { title: "Investment", href: "/investment" },
+    { title: "Guide", href: "/guide" },
   ];
 
   return (
