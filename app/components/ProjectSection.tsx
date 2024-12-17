@@ -23,7 +23,7 @@ type Project = {
 const projects: Project[] = [
   {
     title: "Revitalisasi THR",
-    image: "/images/thr.jpg",
+    image: "/images/thr.jpeg",
     description:
       "Pembaruan fasilitas dan infrastruktur Taman Hiburan Rakyat untuk meningkatkan daya tarik wisata.",
     date: "Jan 2024 - Des 2024",
